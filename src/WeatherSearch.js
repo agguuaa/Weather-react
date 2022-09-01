@@ -9,11 +9,14 @@ export default function WeatherSearch() {
   function displayWeather(response) {
     setLoaded(true);
     setWeather({
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
+      date: new Date(response.data.main.dt * 1000),
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       description: response.data.weather[0].description,
+      city: response.data.name,
     });
   }
   function handleSubmit(event) {

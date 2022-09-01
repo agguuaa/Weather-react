@@ -1,15 +1,18 @@
 import "./App.css";
 import WeatherSearch from "./WeatherSearch";
+import React from "react";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <WeatherSearch />
+      <header className="container">
+        <WeatherSearch defaultCity="Tokyo" />
       </header>
-      <a href="https://github.com/agguuaa/Weather-react">
-        Github opensource code by Aga
-      </a>
+      <footer>
+        <a href="https://github.com/agguuaa/Weather-react">
+          Github opensource code by Aga
+        </a>
+      </footer>
     </div>
   );
 }
