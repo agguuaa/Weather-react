@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="container">
-        <WeatherSearch defaultCity="Tokyo" />
+        <WeatherSearch />
       </header>
       <footer>
         <a href="https://github.com/agguuaa/Weather-react">

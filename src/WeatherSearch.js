@@ -4,12 +4,10 @@ import "./Weather.css";
 
 export default function WeatherSearch() {
   const [city, setCity] = useState(" ");
-  const [loaded, setLoaded] = useState(false);
-  const [weather, setWeather] = useState({});
+  const [weatherData, setWeatherData] = useState({});
 
-  function displayWeather(response) {
-    setLoaded(true);
-    setWeather({
+  function handleResponse(response) {
+    setWeatherData({
       coordinates: response.data.coord,
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
@@ -24,42 +22,40 @@ export default function WeatherSearch() {
     event.preventDefault();
     let apiKey = "af683468eb6c609597efb70857e6314f";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(displayWeather);
+    axios.get(apiUrl).then(handleResponse);
   }
 
   function updateCity(event) {
     setCity(event.target.value);
   }
-  let form = (
-    <form onSubmit={handleSubmit} className="Search">
-      <input
-        type="search"
-        placeholder="Enter a city..."
-        onChange={updateCity}
-        autoFocus="on"
-      />
-      <button type="Submit">Search</button>
-    </form>
-  );
 
-  if (loaded) {
+  if (weatherData.ready) {
     return (
-      <div>
-        {form}
-        <ul>
-          <li>{weather.city}</li>
-          <li> Temperature:{Math.round(weather.temperature)}°C</li>
-          <li> Description: {weather.description}</li>
-          <li> Humidity: {Math.round(weather.humidity)}%</li>
-          <li> Wind: {Math.round(weather.wind)}km/h</li>
-          <li>
-            <img src={weather.icon} alt={weather.description} />
-          </li>
-        </ul>
+      <div className="Weather">
+        <form onSubmit={handleSubmit}>
+          <div className="row">
+            <div className="col-9">
+              <input
+                type="search"
+                placeholder="Enter a city.."
+                className="form-control"
+                autoFocus="on"
+                onChange={updateCity}
+              />
+            </div>
+            <div className="col-3">
+              <input
+                type="submit"
+                value="Search"
+                className="btn btn-primary w-100"
+              />
+            </div>
+          </div>
+        </form>
       </div>
     );
   } else {
-    WeatherSearch();
+    handleSubmit();
     return "Loading...";
   }
 }
