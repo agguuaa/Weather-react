@@ -5,7 +5,7 @@ import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
 
 export default function WeatherSearch(props) {
-  const [city, setCity] = useState(props.defaultCity);
+  const [city, setCity] = useState("London");
   const [weatherData, setWeatherData] = useState({ ready: false });
 
   function handleResponse(response) {
