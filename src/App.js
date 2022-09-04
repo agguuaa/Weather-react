@@ -11,7 +11,7 @@ export default function App() {
       <footer>
         This project was coded by Aga and is{" "}
         <a
-          href="https://github.com/wecodeschool/react-weather-app"
+          href="https://github.com/agguuaa/Weather-react"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -19,7 +19,7 @@ export default function App() {
         </a>{" "}
         and{" "}
         <a
-          href="https://suspicious-beaver-111c4d.netlify.com/"
+          href="https://peaceful-pothos-09bd57.netlify.app"
           target="_blank"
           rel="noopener noreferrer"
         >
