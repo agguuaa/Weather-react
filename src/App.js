@@ -8,6 +8,9 @@ export default function App() {
       <header className="container">
         <WeatherSearch />
       </header>
+
+      <br />
+
       <footer>
         This project was coded by Aga and is{" "}
         <a
