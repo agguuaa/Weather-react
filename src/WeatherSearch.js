@@ -14,7 +14,7 @@ export default function WeatherSearch(props) {
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
-      date: new Date(response.data.main.dt * 1000),
+      date: new Date(response.data.dt * 1000),
       icon: response.data.weather[0].icon,
       description: response.data.weather[0].description,
       city: response.data.name,
@@ -39,7 +39,7 @@ export default function WeatherSearch(props) {
 
   if (weatherData.ready) {
     return (
-      <div className="Weather">
+      <div className="WeatherSearch">
         <form onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-9">
